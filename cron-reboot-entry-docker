@@ -1,0 +1,2 @@
+@reboot cd /home/admin;bash run_docker_server.sh >> /home/admin/log-run-docker-cron.txt
+
