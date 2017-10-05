@@ -7,6 +7,7 @@ echo -e "-----------------------------------------------------------------------
 
 REPO_DIR=$(pwd)
 TMP_DIR=~
+HOME_DIR=/home/admin
 
 #####################################################################################
 ## RERESH SYSTEM WITH APT-GET LIBRARY UPDATE & UPGRADE
@@ -21,14 +22,14 @@ apt-get -y update 							# Update library
 apt-get -y install curl
 curl -sSL https://get.docker.com | sh
 usermod -aG docker admin
-cd $HOME
-sudo cp -f $REPO_DIR/run_docker.sh $HOME/run_docker.sh
-sudo chmod 0755 $HOME/run_docker.sh
+cd $HOME_DIR
+sudo cp -f $REPO_DIR/run_docker.sh $HOME_DIR/run_docker.sh
+sudo chmod 0755 $HOME_DIR/run_docker.sh
 #--- add docker to run when boot
 sudo crontab -l -u root | cat - $REPO_DIR/cron-reboot-entry-docker | sudo crontab -u root -
 #--- copy node-red initial files
-mkdir $HOME/node-red-user-data
-cp $REPO_DIR/node-red-files/* $HOME/node-red-user-data/
+mkdir $HOME_DIR/node-red-user-data
+cp $REPO_DIR/node-red-files/* $HOME_DIR/node-red-user-data/
 
 #####################################################################################
 ## Reboot the machine
