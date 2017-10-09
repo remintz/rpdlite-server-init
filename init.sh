@@ -23,8 +23,8 @@ apt-get -y install curl
 curl -sSL https://get.docker.com | sh
 usermod -aG docker admin
 cd $HOME_DIR
-sudo cp -f $REPO_DIR/run_docker.sh $HOME_DIR/run_docker.sh
-sudo chmod 0755 $HOME_DIR/run_docker.sh
+sudo cp -f $REPO_DIR/run_docker_server.sh $HOME_DIR/run_docker_server.sh
+sudo chmod 0755 $HOME_DIR/run_docker_server.sh
 #--- add docker to run when boot
 sudo crontab -l -u root | cat - $REPO_DIR/cron-reboot-entry-docker | sudo crontab -u root -
 #--- copy node-red initial files
