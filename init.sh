@@ -29,13 +29,14 @@ sudo chmod 0755 $HOME_DIR/run_docker_server.sh
 sudo crontab -l -u root | cat - $REPO_DIR/cron-reboot-entry-docker | sudo crontab -u root -
 #--- copy node-red initial files
 mkdir $HOME_DIR/node-red-user-data
+cp -r $REPO_DIR/node-red-files/* $HOME_DIR/node-red-user-data/
 
 #####################################################################################
 ## Reboot the machine
 #####################################################################################
 
 echo -e "--------------------------------------------------------------------------"
-echo -e " The RPD box is going to reboot now!"
+echo -e " The RPDlite Server is going to reboot now!"
 echo -e "--------------------------------------------------------------------------"
 sleep 5
 shutdown -r now
