@@ -17,10 +17,22 @@ echo -e "-----------------------------------------------------------------------
 apt-get -y update 							# Update library
 
 #####################################################################################
-## Install docker
+## Install docker (see https://docs.docker.com/engine/installation/linux/docker-ce/debian/#install-docker-ce-1)
 #####################################################################################
-apt-get -y install curl
-curl -sSL https://get.docker.com | sh
+apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce=17.09.0~ce-0~debian
 usermod -aG docker admin
 cd $HOME_DIR
 sudo cp -f $REPO_DIR/run_docker_server.sh $HOME_DIR/run_docker_server.sh
