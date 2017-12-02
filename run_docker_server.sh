@@ -2,7 +2,7 @@
 
 PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 VERBOSE=
-IMAGE=hub.docker.com/remintz/rpdlite-server
+IMAGE=remintz/rpdlite-server
 MAPPED_DIR=/home/admin/node-red-user-data
 MAPPED_DIR_MONGO=/home/admin/dbdata
 CONTAINER_NAME=node-red-container
